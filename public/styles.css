@@ -94,6 +94,7 @@ body{
     justify-self: start;
     position: relative;
     z-index: 5;
+    touch-action: manipulation;
 }
 
 .photoGrid.even{
@@ -110,6 +111,7 @@ body{
     justify-self: end;
     position: relative;
     z-index: 5;
+    touch-action: manipulation;
 }
 
 .messages{

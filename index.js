@@ -3,10 +3,10 @@ import axios from 'axios';
 import ejs from 'ejs';
 import bodyParser from 'body-parser';
 import friendMessages from './messageText.js';
-
+import 'dotenv/config';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -22,7 +22,7 @@ app.get('/', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     console.log(req.body);
-    if (req.body.secretPassword === "Intrusive thoughts" ) {
+    if (req.body.secretPassword === process.env.SECRET_PASSWORD) {
         res.render('congrats.ejs' , { messages: messages });
     } else {
         res.render('login.ejs', {wrongPassword: true});

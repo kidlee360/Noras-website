@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     congratsMessage.classList.add('blur-it');
                 }
             }
-            }, 50);
+            }, 150);
         });
     });
 

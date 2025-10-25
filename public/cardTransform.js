@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     photoGrids.forEach(grid => {
         grid.addEventListener('click', (event) => {
+            setTimeout(() => {
             if (isDragging) {
                 return;
             }
@@ -110,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     congratsMessage.classList.add('blur-it');
                 }
             }
+            }, 50);
         });
     });
 

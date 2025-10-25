@@ -1,0 +1,19 @@
+import { name } from "ejs";
+
+const friendMessages = [
+    {name: "Sasiaro", message: "I love how you worked so hard to get good grades and loose weight. You are amazing and I am so proud of you! Keep on keeping on, like they say:  the sky is oyur starting point."},
+    {name: "Becky", message: "Welcome back to the house. I don't want to hear 'I have lab test' or 'I'm preparing for exam' now that you have finished it's time for you to start doing chores again😂😂. Congratulations once again❤️ "},
+    {name: "Anisa", message: "Tbh..I don't have much to say..and maybe this is even coming in late...I'm not a motivational speaker to say 😂 But well I'll say you are a very hardworking person..one that once she put her mind to something..she must accomplish it..you were very studious..never wanted distraction and your results definitely were a good representation of that...you were annoying but funny...have your perks of pissing me of as a sibling..but you always genuinely cared even though your not all that great at expressing yourself but I think overall that's wat makes Nora-nora...So I'm grateful to have you as a sister and a role model and a very annoying friend❤️"},
+    {name: "Jeffery", message: "What's up Four-Eyes 🤓,So you actually finished school, huh? I'm genuinely shocked , not because you're not smart (you're annoyingly brilliant), but because I was starting to think your intrusive thoughts would graduate before you did 😭Anyway, congrats, genius. You pulled it off. All those chaotic after-school walks, random arguments about literally nothing, and your endless overthinking finally paid off. I'm proud of you (don't get used to me saying that).You're still annoying, still dramatic, but also still my favorite headache. Don't let that brain of yours rest too much,the world clearly isn't ready for your next set of crazy ideas 😂—Man Jeff"},
+    {name: "Mom", message: "A precious daughter, a loving girl. A bit stubborn at times but eventually does the job done. I love you and I'm really proud of you."},
+    {name: "Mabel", message: "You can be a good person when you wants to. You can also be hard to live with when you wants to. But generally you're a good person and a good sister. Congratulations on finishing your course."},
+    {name: "David", message: "She's annoying and she calls me big head and slaps me a lot. What do I like about her? Nothing!(Lee: I'm sure deep down he loves you but he just doesn't know😂😂❤️) "},
+    {name: "Ugonna", message: "(He refused to say anything o. He was telling me he had already sent you his message)"},
+    {name: "Tega", message: "Congratulations on your graduation!🎓 You’ve worked so hard and truly earned every bit of this moment. I’m so proud of you and inspired by your kindness, passion, and bright spirit. May this new chapter bring you endless joy, success, and all the beautiful things you dream of.✨"},
+    {name: "Brilliant", message: "You survived four years in Uniport. Me I,ve only done one year and i feel like dropping out. If you can go through four years in that school and survive I feel like you can acheive anything."},
+    {name: "Agape", message: "Congratulations on finishing university! I wish you the best and know youll'd acheive greatthings in life."},
+    {name: "Chisom", message: "Congratulations on graduating from university! Thankyou for always being there to talk to me at the meetings. Just keep being you and never change. Wishing you all the best in your future endeavors!"},
+    {name: "Ruth", message: "(Would have really loved to add hers but I'm too scared to ask her as I haven't done anyhting for her yet even tho she graduated weeks ago😭😭😭) "}
+];
+
+export default friendMessages;

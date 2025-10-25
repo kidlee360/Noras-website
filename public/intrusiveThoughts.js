@@ -32,6 +32,7 @@
             passwordInput.placeholder = 'Enter Pass-code';
 
             // 3. Create the submit button (Bootstrap styling)
+            const submitButton = document.createElement('button');
             submitButton.textContent = 'Submit';
             submitButton.type = 'submit'; // Set the button type to submit
             submitButton.className = 'btn btn-primary'; // Bootstrap success button style

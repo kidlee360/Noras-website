@@ -73,45 +73,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };    
 
+    // Timestamp used to prevent duplicate activation (touch -> click) on mobile
+    let lastTouchAt = 0;
+
     photoGrids.forEach(grid => {
-        grid.addEventListener('click', (event) => {
-            setTimeout(() => {
-            if (isDragging) {
-                return;
-            }
-            event.stopPropagation();
+        // Shared activation logic for both click and touch
+        const activateGrid = (event) => {
+            if (isDragging) return;
+
+            // If this activation comes from a click shortly after a touch, ignore it
+            if (event && event.type === 'click' && (Date.now() - lastTouchAt) < 500) return;
+
+            event && event.stopPropagation();
 
             const isActive = grid.classList.contains('active');
-            
             deactivateAll();
 
             if (!isActive) {
-                // --- NEW LINE: CLEAR ANY INLINE DRAGGABLE STYLES ---
+                // Clear any inline draggable styles
                 grid.style.left = '';
                 grid.style.top = '';
-                // Activate clicked grid
+
+                // Create and insert placeholder
                 const placeholder = document.createElement('div');
                 placeholder.classList.add('photoGrid', 'photo-grid-placeholder');
                 placeholder.style.width = grid.offsetWidth + 'px';
                 placeholder.style.height = grid.offsetHeight + 'px';
                 placeholder.style.margin = window.getComputedStyle(grid).margin;
-                
+
                 grid.parentNode.insertBefore(placeholder, grid);
                 grid.classList.add('active');
-                
-                // Disable draggable when active
                 $(grid).draggable('disable');
 
                 photoGrids.forEach(g => {
-                    if (g !== grid) {
-                        g.classList.add('blur-it');
-                    }
+                    if (g !== grid) g.classList.add('blur-it');
                 });
-                if(congratsMessage){
-                    congratsMessage.classList.add('blur-it');
-                }
+                if (congratsMessage) congratsMessage.classList.add('blur-it');
             }
-            }, 150);
+        };
+
+        // Click handler: run activation after 50ms (per request)
+        grid.addEventListener('click', (event) => {
+            setTimeout(() => activateGrid(event), 50);
+        });
+
+        // Touch handlers: detect a short tap and call the same activation logic
+        grid.addEventListener('touchstart', (event) => {
+            grid.touchStartTime = Date.now();
+        });
+
+        grid.addEventListener('touchend', (event) => {
+            // If touch duration is short, treat as a tap
+            if (Date.now() - (grid.touchStartTime || 0) < 300) {
+                // mark lastTouchAt to suppress the following click event
+                lastTouchAt = Date.now();
+                setTimeout(() => activateGrid(event), 50);
+            }
         });
     });
 
